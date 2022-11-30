@@ -95,7 +95,7 @@ def load_data(city, month, day):
 
     #Create month and day columns in data frame
     df['month'] = df['Start Time'].dt.month
-    df['day_of_week'] = df['Start Time'].dt.day_name() #weekday_name() would not work, day_name works https://stackoverflow.com/questions/60339049/weekday-name-from-a-pandas-dataframe-date-object
+    df['day_of_week'] = df['Start Time'].dt.day_name()
 
     #Filter on month
     if month != 'All':
