@@ -15,6 +15,7 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
+
     print('Hello! Let\'s explore some US bikeshare data!')
 
     # set lists for comparison
@@ -24,53 +25,45 @@ def get_filters():
 
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
-        city=input('\nPlease enter which city you would like data for: Chicago, New York City or Washington: \n').title()
-        print('\nYou have chosen',city,'as your city')
-        user_confirm=input('\nIs this correct? Y/N\n').title()
-        if user_confirm not in ('Y', 'N') or user_confirm == 'N':
-            print('Please select city again')
-            continue
-        elif city not in cities:
-            print('Invalid city chosen, please try again')
-            continue
-        else:
-             #clear user_confirm for use later and break choosing city loop
-            user_confirm=''
-            print('-'*40)
-            break
+        while True:
+            city=input('\nPlease enter which city you would like data for: Chicago, New York City or Washington: \n').title()
+            if city not in cities:
+                print('Invalid city chosen, please try again')
+                continue
+            else:
+                print('-'*40)
+                break
 
     # get user input for month (all, january, february, ... , june)
-    while True:
-        month=input('\nPlease enter which month you would like data from: January, February, March, April, May, June, All: \n').title()
-        print('\nYou have chosen',month,'as your chosen month')
-        user_confirm=input('\nIs this correct? Y/N\n').title()
-        if user_confirm not in ('Y', 'N') or user_confirm == 'N':
-            print('Please select month again')
-            continue
-        elif month not in months:
-            print('Invalid month chosen, please try again and follow the naming convention in the examples given')
-            continue
-        else:
-            #clear user_confirm for use later and break choosing month loop
-            user_confirm=''
-            print('-'*40)
-            break
+        while True:
+            month=input('\nPlease enter which month you would like data from: January, February, March, April, May, June, All: \n').title()
+            if month not in months:
+                print('Invalid month chosen, please try again and follow the naming convention in the examples given')
+                continue
+            else:
+                print('-'*40)
+                break
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
-    while True:
-        day=input('\nPlease enter which day would like data from: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, All: \n').title()
-        print('\nYou have chosen',day,'as your chosen day')
-        user_confirm=input('\nIs this correct? Y/N\n').title()
-        if user_confirm not in ('Y', 'N') or user_confirm == 'N':
-            print('Please select day again')
-            continue
-        elif day not in days:
-            print('Invalid day chosen, please try again and follow the naming convention in the examples given')
-            continue
-        else:
-            break
-            print('-'*40)
+        while True:
+            day=input('\nPlease enter which day would like data from: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, All: \n').title()
+            if day not in days:
+                print('Invalid day chosen, please try again and follow the naming convention in the examples given')
+                continue
+            else:
+                print('-'*40)
+                break
+        
+        print('\nYou have chosen the following values')
+        print('\nCity: {}'.format(city))
+        print('Month: {}'.format(month))
+        print('Day: {}'.format(day))
 
+        confirmation=input('\nIs this correct? Y/N: ').title()
+        if confirmation == 'Y':
+            break
+        else:
+            continue
     print('-'*40)
     return city, month, day
 
