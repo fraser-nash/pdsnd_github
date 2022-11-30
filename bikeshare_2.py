@@ -144,14 +144,7 @@ def time_stats(df):
     # display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     pop_hour = df['hour'].mode()[0]
-
-    #convert 24 hour to 12 hour time. strptime not needed as only using ints so simple if statement works
-    if pop_hour < 12:
-        print('The most popular starting hour is... ',pop_hour,'AM')
-    elif pop_hour >= 12:
-        if pop_hour > 12:
-            pop_hour -=12
-        print('The most popular starting hour is...',pop_hour,'PM')
+    print('The most popular starting hour is... {}:00'.format(pop_hour))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
