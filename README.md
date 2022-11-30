@@ -7,7 +7,7 @@
 Udacity Programming for Data Science with Python Submission 3
 
 ### Description
-Describe what your project is about and what it does
+This project explores data sets concerning bike share rental programs across three US cities; Chicago, New York and Washington. It uses python and python libraries such as pandas and numpy to achieve this. 
 
 ### Files used
 Include the files used
